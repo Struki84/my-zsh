@@ -107,6 +107,35 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+
+
+#############################################
+########## CUSTOM IMPLEMENTATIONS ###########
+#############################################
+
+# PATHS
+#############################################
+export GEM_HOME=$HOME/.gem
+export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=/usr/local/mysql/bin:$PATH
+export PATH=~/.projectile/bin:$PATH
+export PATH=/opt/homebrew/bin:$PATH
+export PATH=$HOME/.rbenv/bin:$PATH
+export PATH=$HOME/.gem/bin:$PATH
+
+export GOPATH=$HOME/.go
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+export PATH="$PATH:/Users/simun/Engineering/Libraries/Flutter/bin"
+
+export PATH="/usr/local/opt/python/libexec/bin:$PATH"
+export PATH=/Users/simun/Library/Python/3.9/bin:$PATH
+
+# ALIASES
+#############################################
+alias python="/usr/bin/python3"
+alias pip="/usr/bin/pip3"
+
 alias ls="ls -la"
 alias eng="/Users/Simun/Engineering"
 alias pro="/Users/Simun/Engineering/Projects"
@@ -114,19 +143,46 @@ alias libs="/Users/Simun/Engineering/Libraries"
 alias tg="/Users/Simun/Engineering/TestingGrounds"
 
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+# RBENV
+#############################################
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 eval "$(rbenv init - zsh)"
 
 # GoLang Configurations
+#############################################
 export GOPATH=$HOME/.go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 export GO111MODULE=on
 export GOPRIVATE=gitlab.sintezis.co
 
+# Flutter Configurations
+#############################################
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+
+# FUNCTIONS
+#############################################
+
+# Custom function for showing hidden files in Finder
+# Made by GPT-4
+ShowHiddenFiles() {
+    if [[ "$1" == "on" ]]; then
+        defaults write com.apple.finder AppleShowAllFiles -bool true
+        killall Finder
+        echo "Hidden files are now visible."
+    elif [[ "$1" == "off" ]]; then
+        defaults write com.apple.finder AppleShowAllFiles -bool false
+        killall Finder
+        echo "Hidden files are now hidden."
+    else
+        echo "Please specify 'on' or 'off' as an argument."
+    fi
+}
+
 # Custom function wrapping curl for downloading source code 
 # from remote repositories, made by GPT-4
-
 function download() {
   if [ $# -lt 1 ]; then
     echo "Usage: download <source_url> [destination]"
