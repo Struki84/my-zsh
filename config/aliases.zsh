@@ -11,3 +11,5 @@ alias eng="/Users/Simun/Engineering"
 alias pro="/Users/Simun/Engineering/Projects"
 alias libs="/Users/Simun/Engineering/Libraries"
 alias tg="/Users/Simun/Engineering/TestingGrounds"
+
+alias reload="source ~/.zshrc"
