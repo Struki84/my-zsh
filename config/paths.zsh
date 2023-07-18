@@ -12,10 +12,9 @@ export PATH="$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH"
 export GEM_HOME=$HOME/.gem
 export PATH=$HOME/.gem/bin:$PATH
 
-export PATH=~/.projectile/bin:$PATH
-
 export GOPATH=$HOME/.go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+export PATH=$PATH:user/sbin
 
 export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 export PATH=/Users/simun/Library/Python/3.9/bin:$PATH
